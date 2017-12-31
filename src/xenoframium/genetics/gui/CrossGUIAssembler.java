@@ -64,6 +64,7 @@ public class CrossGUIAssembler {
         Entity outP = space.createEntity();
         outP.addComponent(new TransformComponent2D());
         outP.getComponent(TransformComponent2D.class).pos = new Vec2(-146, -279);
+        outP.getComponent(TransformComponent2D.class).z = -0.2f;
         Entity treeUI3 = TreePropertiesUIAssembler.assembleEntity(space);
         treeUI3.getComponent(TransformComponent2D.class).z = -0.2f;
         treeUI3.getComponent(TransformComponent2D.class).setParent(outP);

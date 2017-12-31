@@ -22,7 +22,7 @@ public class GUIAssembler {
         guiOverlayPlacement.addComponent(overlayTransform);
         overlayTransform.pos = new Vec2(400, -300);
         overlayTransform.setParent(gui);
-        overlayTransform.z = 1.0f;
+        overlayTransform.z = 10.0f;
 
         Entity moneyTextPlacement = space.createEntity();
         Entity moneyText = MoneyUIAssembler.assembleEntity(space);
@@ -30,6 +30,7 @@ public class GUIAssembler {
 
         TransformComponent2D moneyTextTransform = new TransformComponent2D();
         moneyTextPlacement.addComponent(moneyTextTransform);
+        moneyTextTransform.z = -0.2f;
         moneyTextTransform.pos = new Vec2(238, -244);
         moneyTextTransform.setParent(gui);
 
@@ -40,6 +41,7 @@ public class GUIAssembler {
         TransformComponent2D landTextTransform = new TransformComponent2D();
         landTextPlacement.addComponent(landTextTransform);
         landTextTransform.pos = new Vec2(238, -282);
+        landTextTransform.z = -0.2f;
         landTextTransform.setParent(gui);
 
         Entity landInfoUIPlacement = space.createEntity();
@@ -48,6 +50,7 @@ public class GUIAssembler {
 
         TransformComponent2D landInfoUIPlacementTransform = new TransformComponent2D();
         landInfoUIPlacement.addComponent(landInfoUIPlacementTransform);
+        landInfoUIPlacementTransform.z = -0.2f;
         landInfoUIPlacementTransform.pos = new Vec2(400, -112);
         landInfoUIPlacementTransform.setParent(gui);
 
@@ -57,10 +60,12 @@ public class GUIAssembler {
 
         TransformComponent2D plantInfoUIPlacementTransform= new TransformComponent2D();
         plantInfoUIPlacement.addComponent(plantInfoUIPlacementTransform);
+        plantInfoUIPlacementTransform.z = -0.2f;
         plantInfoUIPlacementTransform.pos = new Vec2(400, 130);
         plantInfoUIPlacementTransform.setParent(gui);
 
         Entity crossGUI = CrossGUIAssembler.assembleEntity(space);
+        crossGUI.getComponent(TransformComponent2D.class).z = -0.2f;
 
         return gui;
     }

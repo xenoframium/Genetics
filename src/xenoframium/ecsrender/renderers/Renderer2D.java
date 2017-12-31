@@ -38,16 +38,12 @@ class Renderer2D {
         Set<Entity> entities = space.getEntities(filter);
 
         ArrayList<Entity> entitiesArray = new ArrayList<>(entities);
-        try {
-            Collections.sort(entitiesArray, new Comparator<Entity>() {
-                @Override
-                public int compare(Entity o1, Entity o2) {
-                    return o1.getComponent(TransformComponent2D.class).compareZ(o2.getComponent(TransformComponent2D.class));
-                }
-            });
-        } catch(RuntimeException e) {
-//seriously fix this
-        }
+        Collections.sort(entitiesArray, new Comparator<Entity>() {
+            @Override
+            public int compare(Entity o1, Entity o2) {
+                return o1.getComponent(TransformComponent2D.class).compareZ(o2.getComponent(TransformComponent2D.class));
+            }
+        });
         Collections.reverse(entitiesArray);
 
         Mat4 vp = projection.getMat().scale(new Vec3(-1.0f, 1.0f, 1.0f));
